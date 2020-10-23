@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+metadata:
+  name: Hightower test env
+
+deploy:
+  kubectl:
+    manifests:
+      - postgres/*.yaml
+      - influxdb/*.yaml
+      - ats/*.yaml
