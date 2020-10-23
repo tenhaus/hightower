@@ -7,3 +7,4 @@ The project aims to make an open source, multi-language, local development envir
 - [ ] Load a skaffold environment
 - [ ] Watch files for changes and reload
 - [ ] Use a base image as a dependency
+- [ ] Gracefully handle changing branches
