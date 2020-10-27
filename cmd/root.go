@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/tenhaus/hightower/pkg/docker"
 )
 
 var rootCmd = &cobra.Command{
@@ -14,7 +15,7 @@ var rootCmd = &cobra.Command{
 that prioritizes role-based startup, service dependencies, testing and config generation
 while remaining useable and unopinionated.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("run")
+		docker.Run()
 	},
 }
 
