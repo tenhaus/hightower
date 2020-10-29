@@ -1,7 +1,6 @@
 package fs
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -23,7 +22,6 @@ func TestWalkFilesAndDirectories(t *testing.T) {
 	found := true
 	files, _ := Walk("./testdata", true)
 	for _, f := range files {
-		fmt.Println(f)
 		found = found && (f == "testdata" ||
 			f == "testdata/walk" ||
 			f == "testdata/walk/sub" ||
