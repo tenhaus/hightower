@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"os"
 
@@ -28,7 +29,13 @@ var buildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build the environment",
 	Run: func(cmd *cobra.Command, args []string) {
-		docker.Build()
+		ctx := context.Background()
+		docker.Build(&ctx, docker.BuildOptions{
+			Path:       "test/base",
+			Dockerfile: "test/base/Dockerfile",
+			Tag:        "chris:test",
+			Cache:      false,
+		})
 	},
 }
 

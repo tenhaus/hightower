@@ -8,7 +8,7 @@ require (
 	github.com/go-critic/go-critic v0.5.2 // indirect
 	github.com/go-toolsmith/pkgload v1.0.1 // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
-	github.com/gruntwork-io/terratest v0.30.13 // indirect
+	github.com/gruntwork-io/terratest v0.30.13
 	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect

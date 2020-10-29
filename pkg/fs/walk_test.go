@@ -8,9 +8,9 @@ func TestWalkFiles(t *testing.T) {
 	found := true
 	files, _ := Walk("./testdata", false)
 	for _, f := range files {
-		found = found && (f == "testdata/walk/sub/subsub/two.txt" ||
-			f == "testdata/walk/sub/three.txt" ||
-			f == "testdata/walk/one.txt")
+		found = found && (f.Path == "testdata/walk/sub/subsub/two.txt" ||
+			f.Path == "testdata/walk/sub/three.txt" ||
+			f.Path == "testdata/walk/one.txt")
 	}
 
 	if !found {
@@ -22,13 +22,13 @@ func TestWalkFilesAndDirectories(t *testing.T) {
 	found := true
 	files, _ := Walk("./testdata", true)
 	for _, f := range files {
-		found = found && (f == "testdata" ||
-			f == "testdata/walk" ||
-			f == "testdata/walk/sub" ||
-			f == "testdata/walk/sub/subsub" ||
-			f == "testdata/walk/sub/subsub/two.txt" ||
-			f == "testdata/walk/sub/three.txt" ||
-			f == "testdata/walk/one.txt")
+		found = found && (f.Path == "testdata" ||
+			f.Path == "testdata/walk" ||
+			f.Path == "testdata/walk/sub" ||
+			f.Path == "testdata/walk/sub/subsub" ||
+			f.Path == "testdata/walk/sub/subsub/two.txt" ||
+			f.Path == "testdata/walk/sub/three.txt" ||
+			f.Path == "testdata/walk/one.txt")
 	}
 
 	if !found {

@@ -7,9 +7,15 @@ import (
 	"strings"
 )
 
+// File provides information about a file
+type File struct {
+	Path string
+	Info os.FileInfo
+}
+
 // Walk returns a list of all files in the given directory
-func Walk(dir string, includeDir bool) ([]string, error) {
-	var files []string
+func Walk(dir string, includeDir bool) ([]File, error) {
+	var files []File
 	cleanDir := dir
 
 	// Strip out ./ from the beginning of path
@@ -35,7 +41,7 @@ func Walk(dir string, includeDir bool) ([]string, error) {
 			return nil
 		}
 
-		files = append(files, path)
+		files = append(files, File{Path: path, Info: info})
 		return nil
 	})
 
