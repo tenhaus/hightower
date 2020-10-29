@@ -14,7 +14,7 @@ func TestWalkFiles(t *testing.T) {
 	}
 
 	if !found {
-		t.Errorf("Couldn't locate expected files")
+		t.Errorf("Couldn't find expected files")
 	}
 }
 
@@ -32,6 +32,6 @@ func TestWalkFilesAndDirectories(t *testing.T) {
 	}
 
 	if !found {
-		t.Errorf("Couldn't locate expected files")
+		t.Errorf("Couldn't find expected files")
 	}
 }
