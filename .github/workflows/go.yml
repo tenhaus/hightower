@@ -34,6 +34,3 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-
-    - name: Docker
-      run: docker build -f test/base/Dockerfile .
