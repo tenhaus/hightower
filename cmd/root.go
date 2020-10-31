@@ -3,18 +3,47 @@ package cmd
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
+	"os/exec"
 
 	"github.com/spf13/cobra"
+	"github.com/tenhaus/hightower/pkg/config"
 	"github.com/tenhaus/hightower/pkg/docker"
 )
+
+const description = `The project aims to make an open source, multi-language, local development environment
+that prioritizes role-based startup, service dependencies, testing and config generation
+while remaining useable and unopinionated.`
 
 var rootCmd = &cobra.Command{
 	Use:   "ht",
 	Short: "yama",
-	Long: `The project aims to make an open source, multi-language, local development environment
-that prioritizes role-based startup, service dependencies, testing and config generation
-while remaining useable and unopinionated.`,
+	Long:  description,
+
+	Run: func(cmd *cobra.Command, args []string) {
+
+		// Grab our config
+		config, err := config.Parse()
+		if err != nil {
+			log.Fatalf("There was an error loading the configuration: %v", err)
+
+		}
+
+		// Make sure the entrypoint exists
+		_, err = os.Stat(config.EntryPoint)
+		if os.IsNotExist(err) {
+			log.Fatalf("Entrypoint (%v) does not exist", config.EntryPoint)
+
+		}
+
+		// Grab an image from the cli
+		hightowerCmd := exec.Command("go", "run", config.EntryPoint)
+		if err := hightowerCmd.Run(); err != nil {
+			log.Fatalf("There was an error executing %v: %v", config.EntryPoint, err)
+
+		}
+	},
 }
 
 var devCmd = &cobra.Command{
@@ -43,7 +72,6 @@ var buildCmd = &cobra.Command{
 func Execute() {
 	rootCmd.AddCommand(devCmd)
 	rootCmd.AddCommand(buildCmd)
-
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
