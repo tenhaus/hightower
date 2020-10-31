@@ -12,17 +12,16 @@ import (
 	"github.com/tenhaus/hightower/pkg/docker"
 )
 
-const description = `The project aims to make an open source, multi-language, local development environment
-that prioritizes role-based startup, service dependencies, testing and config generation
-while remaining useable and unopinionated.`
-
 var rootCmd = &cobra.Command{
 	Use:   "ht",
 	Short: "yama",
 	Long:  description,
+}
 
+var devCmd = &cobra.Command{
+	Use:   "dev",
+	Short: "Run the development environment",
 	Run: func(cmd *cobra.Command, args []string) {
-
 		// Grab our config
 		config, err := config.Parse()
 		if err != nil {
@@ -41,16 +40,7 @@ var rootCmd = &cobra.Command{
 		hightowerCmd := exec.Command("go", "run", config.EntryPoint)
 		if err := hightowerCmd.Run(); err != nil {
 			log.Fatalf("There was an error executing %v: %v", config.EntryPoint, err)
-
 		}
-	},
-}
-
-var devCmd = &cobra.Command{
-	Use:   "dev",
-	Short: "Run the development environment",
-	Run: func(cmd *cobra.Command, args []string) {
-		docker.Run()
 	},
 }
 
@@ -77,3 +67,7 @@ func Execute() {
 		os.Exit(1)
 	}
 }
+
+const description = `The project aims to make an open source, multi-language, local development environment
+that prioritizes role-based startup, service dependencies, testing and config generation
+while remaining useable and unopinionated.`
