@@ -22,6 +22,7 @@ var devCmd = &cobra.Command{
 	Use:   "dev",
 	Short: "Run the development environment",
 	Run: func(cmd *cobra.Command, args []string) {
+
 		// Grab our config
 		config, err := config.Parse()
 		if err != nil {
