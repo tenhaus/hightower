@@ -49,6 +49,8 @@ var buildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build the environment",
 	Run: func(cmd *cobra.Command, args []string) {
+
+		// This is just a test right now
 		ctx := context.Background()
 		docker.Build(&ctx, docker.BuildOptions{
 			Path:       "test/base",
