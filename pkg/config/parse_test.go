@@ -10,7 +10,7 @@ func TestParse(t *testing.T) {
 		t.Errorf("Couldn't load configuration %v", err)
 	}
 
-	if config.EntryPoint != "hightower.go" {
+	if config.EntryPoint != "something.go" {
 		t.Error("Entrypoint is not correct")
 	}
 }

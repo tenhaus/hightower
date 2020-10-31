@@ -24,6 +24,9 @@ func Parse() (Config, error) {
 		return config, err
 	}
 
+	// Entrypoint defines to root .go file
+	// that defines the ht environment
 	config.EntryPoint = viper.GetString("entrypoint")
+
 	return config, nil
 }
