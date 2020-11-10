@@ -27,7 +27,6 @@ var devCmd = &cobra.Command{
 		config, err := config.Parse()
 		if err != nil {
 			log.Fatalf("There was an error loading the configuration: %v", err)
-
 		}
 
 		// Make sure the entrypoint exists
