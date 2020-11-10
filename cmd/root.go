@@ -34,18 +34,16 @@ var devCmd = &cobra.Command{
 		_, err = os.Stat(config.EntryPoint)
 		if os.IsNotExist(err) {
 			log.Fatalf("Entrypoint (%v) does not exist", config.EntryPoint)
-
 		}
 
-		// Grab an image from the cli
-		hightowerCmd := exec.Command("go", "run", config.EntryPoint)
-		// if err := hightowerCmd.Run(); err != nil {
-		// 	log.Fatalf("There was an error executing %v: %v", config.EntryPoint, err)
-		// }
+		// Run and redirect stdout, stderr from our child
+		ht := exec.Command("go", "run", config.EntryPoint)
+		ht.Stdout = os.Stdout
+		ht.Stderr = os.Stderr
 
-		out, err := hightowerCmd.CombinedOutput()
-		// hightowerCmd.Wait()
-		fmt.Println(string(out), err)
+		if err := ht.Run(); err != nil {
+			log.Fatal(err)
+		}
 	},
 }
 
