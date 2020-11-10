@@ -39,9 +39,13 @@ var devCmd = &cobra.Command{
 
 		// Grab an image from the cli
 		hightowerCmd := exec.Command("go", "run", config.EntryPoint)
-		if err := hightowerCmd.Run(); err != nil {
-			log.Fatalf("There was an error executing %v: %v", config.EntryPoint, err)
-		}
+		// if err := hightowerCmd.Run(); err != nil {
+		// 	log.Fatalf("There was an error executing %v: %v", config.EntryPoint, err)
+		// }
+
+		out, err := hightowerCmd.CombinedOutput()
+		// hightowerCmd.Wait()
+		fmt.Println(string(out), err)
 	},
 }
 

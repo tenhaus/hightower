@@ -63,10 +63,11 @@ func CreateBuildContext(buf *bytes.Buffer, dir string) error {
 
 // BuildOptions exposes a subset of docker's types.ImageBuildOptions
 type BuildOptions struct {
-	Path       string
-	Dockerfile string
-	Tag        string
-	Cache      bool
+	DisplayName string
+	Path        string
+	Dockerfile  string
+	Tag         string
+	Cache       bool
 }
 
 // Build creates a docker image from the specified Dockerfile and context
