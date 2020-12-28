@@ -27,15 +27,21 @@ func Watch(directories []string) error {
 	select {
 	case event, ok := <-watcher.Events:
 
+		// Not 100% sure what a !ok event is
+		// so debug for now
 		if !ok {
 			log.Debugf("Got a !ok event %v", event)
 		}
 
 	case err, ok := <-watcher.Errors:
+
+		// Not 100% sure what an ok error is
+		// so debug for now
 		if ok {
 			log.Debugf("Got an ok error %v", err)
 		}
 
+		// A very clear !ok plus error
 		if !ok {
 			return err
 		}
