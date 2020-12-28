@@ -1,10 +1,10 @@
 # Hightower
 
-The project aims to make an open source, multi-language, local development environment that prioritizes role-based startup, service dependencies, testing and config generation while remaining useable and unopinionated.
+The project aims to make an open source, local development environment that prioritizes role-based startup, service dependencies, testing and config generation while remaining highly customizable and unopinionated.
 
 ## TODO
 
-- [ ] Load a skaffold environment
-- [ ] Watch files for changes and reload
-- [ ] Use a base image as a dependency
-- [ ] Gracefully handle changing branches
+- [ ] Watch a filesystem for changes
+- [ ] Deploy to kubernetes
+- [ ] Clean up resources on exit
+- [ ] Tag docker images with a SHA based on service-level directory SHA or entire repo git SHA
