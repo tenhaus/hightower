@@ -4,6 +4,8 @@ The project aims to make an open source, local development environment that prio
 
 ## TODO
 
+- [x] Build docker images
+- [x] Walk a filesystem
 - [ ] Watch a filesystem for changes
 - [ ] Deploy to kubernetes
 - [ ] Clean up resources on exit
