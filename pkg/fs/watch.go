@@ -5,8 +5,8 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// Watch notifies for file changes for the given directory
-func Watch(directories []string) error {
+// Watch notifies for file changes for the given file or directory
+func Watch(paths []string) error {
 
 	// Initialize
 	watcher, err := fsnotify.NewWatcher()
@@ -16,9 +16,9 @@ func Watch(directories []string) error {
 		return err
 	}
 
-	// Set up a watcher for all directories
-	for _, directory := range directories {
-		err = watcher.Add(directory)
+	// Set up a watcher for all paths
+	for _, path := range paths {
+		err = watcher.Add(path)
 		if err != nil {
 			return err
 		}
