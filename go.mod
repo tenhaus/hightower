@@ -5,16 +5,18 @@ go 1.15
 require (
 	github.com/containerd/containerd v1.4.1 // indirect
 	github.com/docker/docker v1.4.2-0.20190924003213-a8608b5b67c7
+	github.com/fsnotify/fsnotify v1.4.7
 	github.com/go-critic/go-critic v0.5.2 // indirect
 	github.com/go-toolsmith/pkgload v1.0.1 // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/gruntwork-io/terratest v0.30.13
+	github.com/hashicorp/go.net v0.0.1
 	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/quasilyte/regex/syntax v0.0.0-20200805063351-8f842688393c // indirect
-	github.com/sirupsen/logrus v1.7.0 // indirect
+	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/viper v1.7.1
 	golang.org/x/net v0.0.0-20201029055024-942e2f445f3c // indirect
