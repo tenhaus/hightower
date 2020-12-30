@@ -7,6 +7,9 @@ require (
 	github.com/docker/docker v1.4.2-0.20190924003213-a8608b5b67c7
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/go-critic/go-critic v0.5.2 // indirect
+	github.com/go-git/go-billy/v5 v5.0.0
+	github.com/go-git/go-git v4.7.0+incompatible
+	github.com/go-git/go-git/v5 v5.2.0
 	github.com/go-toolsmith/pkgload v1.0.1 // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/gruntwork-io/terratest v0.30.13
@@ -25,4 +28,5 @@ require (
 	google.golang.org/genproto v0.0.0-20201029200359-8ce4113da6f7 // indirect
 	google.golang.org/grpc v1.33.1 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/src-d/go-git.v4 v4.13.1 // indirect
 )
