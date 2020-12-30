@@ -1,12 +1,20 @@
 package git
 
-import "testing"
+import (
+	"log"
+	"os"
+	"testing"
+)
 
 func TestGenerateSHAForDirectory(t *testing.T) {
-	// t.Err/orf("Failed to generate a SHA for a git directory")
-	Tag(".")
-}
 
-func TestGenerateSHAForFile(t *testing.T) {
-	// t.Errorf("Failed to generate a SHA for a git file")
+	path, err := os.Getwd()
+
+	if err != nil {
+		t.Error("Could not get the current working directory")
+	}
+
+	tag, err := Tag(path)
+
+	log.Println(tag)
 }
