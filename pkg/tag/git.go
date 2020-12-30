@@ -50,12 +50,18 @@ func Tag(path string) (string, error) {
 
 	w, err := r.Worktree()
 	status, err := w.Status()
-	fmt.Println(ref.Hash())
+
+	if err != nil {
+		return "", err
+	}
+
 	if status.IsClean() {
 		fmt.Println("clean")
 	} else {
 		fmt.Println("dirty")
 	}
+
+	fmt.Println(ref.Hash())
 
 	return "", nil
 
