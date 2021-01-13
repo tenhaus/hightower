@@ -1,7 +1,6 @@
 package hack
 
 import (
-	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -73,11 +72,18 @@ func TestAppendDirty(t *testing.T) {
 		t.Error(err)
 	}
 
+	// Move a file so git status displays
+	// changes
+	os.Rename("testdata/dirty", "testdata/dirtytest")
+	defer os.Rename("testdata/dirtytest", "testdata/dirty")
+
 	dirtySha, err := git.AppendDirty(sha)
 
 	if err != nil {
 		t.Error(err)
 	}
 
-	fmt.Println(dirtySha)
+	if !strings.Contains(dirtySha, "-dirty") {
+		t.Errorf("Failed to append -dirty")
+	}
 }
