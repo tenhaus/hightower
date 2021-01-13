@@ -49,6 +49,11 @@ func Tag(path string) (string, error) {
 	}
 
 	w, err := r.Worktree()
+
+	if err != nil {
+		return "", err
+	}
+
 	status, err := w.Status()
 
 	if err != nil {

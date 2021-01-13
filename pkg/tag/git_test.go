@@ -16,5 +16,9 @@ func TestGenerateSHAForDirectory(t *testing.T) {
 
 	tag, err := Tag(path)
 
+	if err != nil {
+		t.Error(err)
+	}
+
 	log.Println(tag)
 }
