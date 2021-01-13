@@ -45,6 +45,10 @@ func TestGetCommitSha(t *testing.T) {
 	if len(sha) == 0 {
 		t.Errorf("Commit sha is nil")
 	}
+
+	if len(sha) <= 7 {
+		t.Errorf("Commit sha length is incorrect")
+	}
 }
 
 func TestGetShortCommitSha(t *testing.T) {
