@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nginx
+  labels:
+    app: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+        - name: test-nginx
+          image: nginx:latest
+          resources:
+            limits:
+              memory: "64Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-nginx
+spec:
+  selector:
+    app: test-app
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 53627
+      targetPort: 80
